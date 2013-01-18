@@ -122,12 +122,12 @@ delete thing.name;
 
 // we deleted the instance's name so now it will traverse the prototype chain
 // until it can find one that has a name property. In this case SpecialThing.prototype
-// doesn't define a name, but it's prototype Thing.prototype does, so we're going to
-// use it's name
+// doesn't define a name, but its prototype Thing.prototype does, so we're going to
+// use its name
 thing.speak();
 // > My name is: Randy Beaman
 
-// here's thing's prototypes:
+// here are thing's prototypes:
 logPrototypeChain( thing );
 // > Prototype of Object is Object  <<< SpecialThing
 // > Prototype of Object is Object  <<< Thing

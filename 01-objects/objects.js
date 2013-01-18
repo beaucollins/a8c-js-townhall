@@ -54,7 +54,7 @@ try {
 	console.log(e);
 }
 
-// You interact with an object by calling it's methods
+// You interact with an object by calling its methods
 // let's create an array:
 var my_array = [1,2,3];
 
