@@ -14,7 +14,7 @@ console.log( myArray );
 // functions prototype:
 
 // an array instance's prototype is an array: "[]"
-// an that object's prototype is an Object
+// and that object's prototype is an Object
 
 // let's see how far it goes
 var logPrototypeChain = function( obj ){
