@@ -16,10 +16,12 @@ div {
 pre {
 	padding: 0 20px;
 	color: #555;
+	counter-reset: code;
 }
 
 pre span {
 	display: block;
+	counter-increment: code;
 }
 
 pre .comment {
@@ -38,15 +40,12 @@ pre > span:hover {
 	background: hsl(0,0%,95%);
 }
 
-pre small {
+pre span:before {
+	content: counter(code) ":";
 	display: inline-block;
 	font-size: 12px;
 	width: 48px;
 	color: #999;
-}
-
-pre small:after {
-	content: ":";
 }
 
 h1 {

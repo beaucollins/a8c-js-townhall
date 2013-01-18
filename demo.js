@@ -12,12 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			xhr.addEventListener('readystatechange', function(){
 				if (xhr.readyState == XMLHttpRequest.DONE) {
 					var pre = xhr.responseText.split("\n").reduce(function(pre, line, i){
-						var el = document.createElement('span'),
-							out = line,
-							t,
-							n = document.createElement('small');
-							n.textContent = i+1;
-							
+						var el = document.createElement('span');
 						if (line.match(/^[\s]{0,}\/\/ >/)) {
 							el.classList.add('output');
 							out = line.replace(/^([\s]{0,})\/\/ /,"$1");
@@ -26,9 +21,8 @@ document.addEventListener("DOMContentLoaded", function(){
 						} else if (line.match(/console\./)){
 							el.classList.add('console');
 						}
-						t = document.createTextNode( out + "\n");
-						el.appendChild(n);
-						el.appendChild(t)
+						line = line.replace(/(https?:\/\/[^ ]+)/, "<a href=\"$1\">$1</a>")
+						el.innerHTML = line + "\n";
 						pre.appendChild(el);
 						return pre;
 					}, document.createElement('pre'));
