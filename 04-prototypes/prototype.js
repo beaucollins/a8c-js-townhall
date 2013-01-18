@@ -5,7 +5,7 @@ var myArray = new Array(1,2,3);
 console.log( myArray );
 // > [1, 2, 3]
 
-// a this point you could say tha myArray is an instance
+// a this point you could say that myArray is an instance
 // of the Array class. However, in Javascript there are no
 // classes, only Objects. So how then does every instance of
 // the Array prototype know how to .pop or .push ? Because
