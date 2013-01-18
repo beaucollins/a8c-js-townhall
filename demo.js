@@ -18,12 +18,14 @@ document.addEventListener("DOMContentLoaded", function(){
 							n = document.createElement('small');
 							n.textContent = i+1;
 							
-						if (line.match(/^\/\/ >/)) {
+						if (line.match(/^[\s]{0,}\/\/ >/)) {
 							el.classList.add('output');
-							out = line.replace(/^\/\/ /,'');
-						} else if (line.match(/^\/\//)){
+							out = line.replace(/^([\s]{0,})\/\/ /,"$1");
+						} else if (line.match(/^[\s]{0,}\/\//)){
 							el.classList.add('comment');
-						} 
+						} else if (line.match(/(^|[\b])console\./)){
+							el.classList.add('console');
+						}
 						t = document.createTextNode( out + "\n");
 						el.appendChild(n);
 						el.appendChild(t)

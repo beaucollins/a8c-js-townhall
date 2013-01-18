@@ -30,6 +30,10 @@ pre .output {
 	color: hsl(0,100%,50%);
 }
 
+pre .console {
+	color: hsl(200,100%, 30%);
+}
+
 pre > span:hover {
 	background: hsl(0,0%,95%);
 }
