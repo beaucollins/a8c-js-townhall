@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
 							out = line.replace(/^([\s]{0,})\/\/ /,"$1");
 						} else if (line.match(/^[\s]{0,}\/\//)){
 							el.classList.add('comment');
-						} else if (line.match(/(^|[\b])console\./)){
+						} else if (line.match(/console\./)){
 							el.classList.add('console');
 						}
 						t = document.createTextNode( out + "\n");
