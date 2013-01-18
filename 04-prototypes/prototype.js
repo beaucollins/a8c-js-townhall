@@ -114,10 +114,14 @@ var SpecialThing = function(){
 	Thing.apply( this, arguments ); 
 };
 
-// Object.create is a "static" method that given a prototype object
+// Object.create is a method which takes an object
 // and a set of properties, it will create a new object with the 
-// supplied properties and whose prototype is the first object
+// supplied properties and whose prototype is the first argument
 SpecialThing.prototype = Object.create( Thing.prototype );
+// now SpecialThing.prototype has it's prototype set to Thing.prototype
+// prototype inception!
+
+// let's give a SpecialThing instances a speak method
 SpecialThing.prototype.speak = function(){
 	console.log( "My name is: ", this.name );
 }
@@ -127,6 +131,7 @@ var thing = new SpecialThing( 'Special' );
 // property if one is provided
 thing.speak();
 // > My name is: Special
+
 delete thing.name;
 
 // we deleted the instance's name so now it will traverse the prototype chain
