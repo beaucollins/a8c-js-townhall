@@ -114,7 +114,3 @@ alwaysBeau();
 // to the original context I gave to the bind function
 alwaysBeau.call( window );
 // > I am Object and my name is Beau ...
-
-
-
-

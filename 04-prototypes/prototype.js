@@ -144,4 +144,3 @@ beau.speak();
 logPrototypeChain( beau );
 // > Prototype of Object is Object  <<< Thing
 // > Prototype of Object is Object  <<< Object
-
