@@ -12,9 +12,13 @@ var saySomething = function(thing){
 
 // functions are really just objects whose prototype is Function
 console.log( saySomething.constructor );
+// > function Function() {
+// >     [native code]
+// > }
+
 // also Function is just a function
 console.log( typeof Function );
-// > "function"
+// > function
 
 // here's a nother function
 var sayYourName = function(){
@@ -47,8 +51,11 @@ var whoAmI = function (){
 	// log out the current context
 	console.log( "I am", this, "and my name is", this.name, "it is now", (new Date()).getTime() );
 };
+
+// let's set the windows name
+var name = "Window!"
 whoAmI();
-// > I am Window and my name is
+// > I am Window and my name is Window! it is now ...
 
 // that's fun, but did you know you can change a functions context?
 // Functions have to useful methods called "call" and "apply". The first
@@ -56,12 +63,12 @@ whoAmI();
 // variable.
 var me = { name:'Beau' };
 whoAmI.call( me );
-// > I am Object and my name is Beau
+// > I am Object and my name is Beau ...
 
 // you can also change the context of a function assigning it to an object
 me.saySomething = whoAmI;
 me.saySomething();
-// > I am Object and my name is Beau
+// > I am Object and my name is Beau ...
 
 
 // functions can be given any number of arguments
