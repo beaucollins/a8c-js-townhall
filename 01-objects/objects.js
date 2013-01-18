@@ -2,8 +2,7 @@
 var a_number = 1,
 	a_string = "hello",
 	a_nothing = null,
-	a_undefined,
-	not_a_number = NaN; // divide by zero and these rears it's head
+	a_undefined;
 
 // however when you interact with them, they are coerced into their
 // respective 'non-primitive' counter parts
@@ -14,20 +13,14 @@ var a_number = 1,
 console.log( a_string, a_string.replace(/[aeiou]/g,'x') );
 // > "hello", "hxllx"
 
-// here's one for fun, what kind of object is NaN?
-console.log( typeof not_a_number );
-// > number
-// you just got punked, NaN is a number
-
 // In most consoles, when logged, primitives show as the primitive value
 console.log(
 	a_number,
 	a_string,
 	a_nothing,
-	a_undefined,
-	not_a_number
+	a_undefined
 );
-// > 1, "hello", null, undefined, NaN
+// > 1, "hello", null, undefined
 
 // Object equivalents show up as Objects, notice how equality still works
 // due to coercion
@@ -51,8 +44,9 @@ try {
 	console.log( an_object['age'], an_object.hair-color );	
 } catch(e) {
 	// OOPS! Dot syntax doesn't let you use hyphens in property names!
-	console.log(e);
+	console.error(e.message);
 }
+// > Can't find variable: color
 
 // You interact with an object by calling its methods
 // let's create an array:
@@ -71,6 +65,8 @@ console.log( my_array.concat( other_array ) );
 console.log( my_array, other_array );
 // > [1, 2], [3,4,5]
 
-// What else can you do with an Array? https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array
+// What else can you do with an Array?
+// https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array
 
-// MDN is a good reference https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects
+// MDN is a good reference
+// https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects
