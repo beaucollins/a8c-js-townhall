@@ -105,6 +105,27 @@ console.log( newArray.join(", "));
 // > 
 // there's nothing there anymore
 
+// we can even get devious and change all array's default implementation
+var oldPop = Array.prototype.pop;
+// now arrays are going to be jerks, every time we pop a value, it's going to
+// push it back on in 1 millisecond
+Array.prototype.pop = function(){
+	var array = this, popped = oldPop.apply(array);
+	setTimeout(function(){
+		array.push(popped);
+		console.log("jk lol", array.join(', '));
+	}, 1);
+	return popped;
+};
+newArray = [1,2,3,4,5];
+newArray.pop();
+console.log("No five", newArray.join(", "));
+// > No five 1 2 3 4
+// > jk lol 1 2 3 4 5 << this will be the last log since we put it in a timeout
+
+// let's restore Array.prototype.pop
+Array.prototype.pop = oldPop;
+
 // ok, so we can modify a prototype, but what if we wanted to subclass
 // so we can specialize without modifying the superclass's behaviour?
 // We take advantage of the prototype chain
@@ -117,7 +138,10 @@ var SpecialThing = function(){
 // Object.create is a method which takes an object
 // and a set of properties, it will create a new object with the 
 // supplied properties and whose prototype is the first argument
+// https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create
+
 SpecialThing.prototype = Object.create( Thing.prototype );
+
 // now SpecialThing.prototype has it's prototype set to Thing.prototype
 // prototype inception!
 
@@ -136,8 +160,8 @@ delete thing.name;
 
 // we deleted the instance's name so now it will traverse the prototype chain
 // until it can find one that has a name property. In this case SpecialThing.prototype
-// doesn't define a name, but its prototype Thing.prototype does, so we're going to
-// use its name
+// doesn't define a name, but its prototype: Thing.prototype does, so we're going to
+// use Thing.prototype's name
 thing.speak();
 // > My name is: Randy Beaman
 
