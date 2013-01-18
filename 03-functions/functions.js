@@ -30,6 +30,7 @@ var sayYourName = function(){
 (function(){
 	console.log("Runs");
 })();
+// > Runs
 
 // you can also create functions using the Function constructor
 // effectively the same thing as eval'ing
