@@ -25,7 +25,8 @@ var logPrototypeChain = function( obj ){
 	}	
 }
 logPrototypeChain( myArray );
-// >
+// > Prototype of [1, 2, 3] is []
+// > Prototype of [] is Object
 
 // so when you call an array's .pop() this is what happens, the
 // prototype chain is traversed until pop is found and then it
@@ -47,6 +48,14 @@ newArray.pop = function(){
 newArray.pop();
 console.log( newArray.join(', ') );
 // > 1, 2, LOL!
+
+// but other arrays still behave correctly, we only changed the
+// single instance
+var otherArray = [1,2,3];
+otherArray.pop();
+console.log( otherArray );
+// > [1, 2]
+// see, no LOL!
 
 // if we delete the pop property from the newArray instance,
 // Array.prototype.pop will be used again
