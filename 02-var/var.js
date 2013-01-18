@@ -14,7 +14,7 @@ function leaky(){
 leaky();
 // > Inside leaky secret leaked
 
-// our "inside" wasn't changed but "leaked" was be
+// our "inside" wasn't changed but "leaked" was
 console.log("Outside leaky", inside, leaked);
 // > Outside leaky, undefined, leaked
 
