@@ -2,7 +2,10 @@
 
 ## Usage
 
-Open each respective `index.html` file in your browser and open your Javascript console. Every comment with a `>` like this:
+Step 1) Open an `index.html` file in your browser
+Step 2) Open your Javascript console.
+
+Every comment with a `>` like this:
 
     // > something
     
